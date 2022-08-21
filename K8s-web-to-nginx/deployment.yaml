@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-web-hello
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: k8s-web-hello
+  template:
+    metadata:
+      labels:
+        app: k8s-web-hello
+    spec:
+      containers:
+      - name: k8s-web-hello
+        image: devopssensei13/k8s-hello-from-server
+        ports:
+        - containerPort: 3000
